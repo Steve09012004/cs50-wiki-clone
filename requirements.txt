@@ -1,15 +1,15 @@
 # Core do Django
 Django==5.2.1
 python-dotenv==1.1.0
-gunicorn==22.0.0  # Para o deploy na Render
+gunicorn==22.0.0
 
 # Banco de dados
 Flask-SQLAlchemy==3.1.1
 Flask-Migrate==4.1.0
 SQLAlchemy==2.0.41
-psycopg2-binary==2.9.9  # Se estiver usando PostgreSQL na Render
+psycopg2-binary==2.9.9
 
-# FastAPI (caso esteja integrando com Django ou usando endpoints separados)
+# FastAPI (caso esteja integrando)
 fastapi==0.88.0
 uvicorn==0.24.0
 
@@ -18,12 +18,10 @@ Flask-Login==0.6.3
 itsdangerous==2.2.0
 Werkzeug==3.1.3
 
-# Outros utilitários úteis e compatíveis
+# Outros
 python-multipart==0.0.6
 pydantic==1.10.11
 requests==2.32.3
 Jinja2==3.1.3
-
-# Compatibilidade
 click==8.1.8
-MarkupSafe==3.1.1
+MarkupSafe>=2.1.3,<3.0.0
