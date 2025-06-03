@@ -32,6 +32,10 @@ ALLOWED_HOSTS = [
     'wiki-m6e8.onrender.com'  # adicione o domínio completo da sua aplicação
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://wiki-m6e8.onrender.com",
+]
+
 
 
 # Application definition
