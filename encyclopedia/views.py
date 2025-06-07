@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 from django import forms
+import random, markdown
 
 from . import util
 
@@ -51,9 +52,10 @@ def view(request, name):
             "title":name,
             'origin':origin
         })
+    html_content = markdown.markdown(view)
     return render(request, "encyclopedia/view.html", {
         "title":name,
-        "view":view
+        "view":html_content
     })
 
 def add(request):
@@ -68,7 +70,8 @@ def add(request):
             if addResult == None:
                 origin = 'add'
                 return render(request, 'encyclopedia/error.html', {
-                    'origin':origin
+                    'title':title,
+                    'origin':origin,
                 })
 
             else:
@@ -95,6 +98,9 @@ def edit(request, name):
 
             util.edit_entry(title, content)
 
+            return HttpResponseRedirect(reverse("encyclopedia:view", 
+                args = [title]))
+
 
 
 
@@ -104,3 +110,8 @@ def edit(request, name):
         'name':name
         
     })
+
+def randomPage(request):
+    titles = util.list_entries()
+    title = random.choice(titles)
+    return HttpResponseRedirect(reverse("encyclopedia:view", args=[title]))

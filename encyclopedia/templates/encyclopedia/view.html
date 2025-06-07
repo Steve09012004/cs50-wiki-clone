@@ -4,5 +4,5 @@
 
 {% block body %}
 <a href="{% url 'encyclopedia:edit' title %}">Editar Página</a><br>
-{{view}}
+{{view | safe}}
 {% endblock %}

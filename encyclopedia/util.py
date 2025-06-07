@@ -23,7 +23,8 @@ def save_entry(title, content):
     if default_storage.exists(filename):
         """default_storage.delete(filename)"""
         return None
-    default_storage.save(filename, ContentFile(content))
+    content_bytes = content.encode('utf-8')
+    default_storage.save(filename, ContentFile(content_bytes))
     return True
 
 
@@ -32,7 +33,8 @@ def edit_entry(title, content):
     filename = f"entries/{title}.md"
     if default_storage.exists(filename):
         default_storage.delete(filename)
-        default_storage.save(filename, ContentFile(content))
+        content_bytes = content.encode('utf-8')
+        default_storage.save(filename, ContentFile(content_bytes))
 
 
 
@@ -43,6 +45,6 @@ def get_entry(title):
     """
     try:
         f = default_storage.open(f"entries/{title}.md")
-        return f.read().decode("utf-8")
+        return f.read().decode("utf-8", errors="replace")
     except FileNotFoundError:
         return None
