@@ -2,9 +2,16 @@
 {% block title %}{{title}}{% endblock %}
 
 {% block body %}
-{{view}}
-<h3>
-    A página solicitada: {{title}}<br>
-    Não Existe
-</h3>
+
+    {% if origin == 'view' %}
+        <h3>
+            A página solicitada: {{title}}<br>
+            Não Existe
+        </h3>
+    {% elif origin == 'add' %}
+        <h3>
+            Could not add page because it already exists.
+        </h3>
+    {% endif %}
+    
 {% endblock %}
