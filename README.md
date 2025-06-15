@@ -1,6 +1,6 @@
 # 🧠 CS50 Wiki Clone
 
-Este projeto é uma mini-enciclopédia online que permite ao usuário criar, visualizar, editar e pesquisar páginas em Markdown. Ele foi desenvolvido como parte do curso [CS50 – Introduction to Computer Science](https://cs50.harvard.edu/) da Universidade de Harvard.
+Este projeto é uma mini-enciclopédia online que permite ao usuário criar, visualizar, editar e pesquisar páginas em Markdown. Ele foi desenvolvido como parte do curso [CS50’s Web Programming with Python and JavaScript](https:/cs50.harvard.edu/web/2020/) da Universidade de Harvard.
 
 ---
 
